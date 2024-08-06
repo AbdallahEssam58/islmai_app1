@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:islmai_app1/home/tabs/hadeth.dart';
+import 'package:islmai_app1/home/tabs/ahadeth.dart';
 import 'package:islmai_app1/home/tabs/quran.dart';
 import 'package:islmai_app1/home/tabs/radio.dart';
 import 'package:islmai_app1/home/tabs/sebha.dart';
@@ -52,8 +52,8 @@ class _HomeScreenState extends State<HomeScreen> {
             showSelectedLabels: true,
             items: [
               BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_quran.png")), label: "quran",),
-              BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_hadeth.png")), label: "hadeth",),
-              BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_sebha.png")), label: "Praise",),
+              BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_hadeth.png")), label: "ahadeth",),
+              BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_sebha.png")), label: "sebha",),
               BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_radio.png")), label: "radio",),
               BottomNavigationBarItem(icon: Icon(Icons.settings), label: "setting",),
             ],
@@ -65,8 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   List<Widget>Tabs=[
     QuranTab(),
+    AhadethTab(),
     SebhaTab(),
-    HadethTab(),
     RadioTab(),
     SettingTap(),
   ];

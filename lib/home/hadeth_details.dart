@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islmai_app1/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../hadeth_model.dart';
 
@@ -11,14 +13,18 @@ class HadethDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)?.settings.arguments as HadethModel;
+    var provider=Provider.of<MyProvider>(context);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/main_bg.png'),
+          image: AssetImage(
+        provider.mode==ThemeMode.light?
+        "assets/images/main_bg.png":
+        "assets/images/main_dark_bg.png",
         ),
       ),
+      ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           centerTitle: true,
@@ -58,7 +64,7 @@ class HadethDetailsScreen extends StatelessWidget {
               ),
           ),
         ),
-        
+
       ),
     );
   }

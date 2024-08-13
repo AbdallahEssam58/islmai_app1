@@ -7,6 +7,9 @@ import 'package:islmai_app1/home/tabs/quran.dart';
 import 'package:islmai_app1/home/tabs/radio.dart';
 import 'package:islmai_app1/home/tabs/sebha.dart';
 import 'package:islmai_app1/home/tabs/setting.dart';
+import 'package:islmai_app1/my_theme_data.dart';
+import 'package:islmai_app1/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home';
@@ -22,19 +25,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider=Provider.of<MyProvider>(context);
     return Stack(
       children: [
-        Image.asset("assets/images/main_bg.png"),
+        Image.asset(
+            provider.mode==ThemeMode.light?
+            "assets/images/main_bg.png":
+          "assets/images/main_dark_bg.png",
+          width: double.infinity,
+          fit: BoxFit.fill,
+        ),
         Scaffold(
-          backgroundColor: Colors.transparent,
           appBar: AppBar(
-            centerTitle: true,
-            backgroundColor: Colors.transparent,
             title: Text(
               'Islmai',
-              style: GoogleFonts.elMessiri(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                fontSize: 45,
               ),
             ),
           ),
@@ -44,12 +50,6 @@ class _HomeScreenState extends State<HomeScreen> {
               selectedIndex=value;
               setState(() {});
             },
-            backgroundColor: Color(0xFFB7935F),
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: Colors.black,
-            unselectedItemColor: Colors.white,
-            showUnselectedLabels: true,
-            showSelectedLabels: true,
             items: [
               BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_quran.png")), label: "quran",),
               BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_hadeth.png")), label: "ahadeth",),

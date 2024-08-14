@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islmai_app1/providers/my_provider.dart';
 import 'package:islmai_app1/providers/sura_details_provider.dart';
 import 'package:islmai_app1/sura_model.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,7 @@ class SuraDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)?.settings.arguments as SuraModel;
+    var pro=Provider.of<MyProvider>(context);
     // var provider=Provider.of<SuraDetailsProvider>(context);
     //if(provider.verses.isEmpty){
     //provider.loadSuraFile(model.index);
@@ -26,9 +28,9 @@ class SuraDetailsScreen extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                 // provider.mode==ThemeMode.light?
-                  "assets/images/main_bg.png"
-                  //"assets/images/main_dark_bg.png",
+                  pro.mode==ThemeMode.light?
+                  "assets/images/main_bg.png":
+                  "assets/images/main_dark_bg.png",
                 ),
               ),
             ),

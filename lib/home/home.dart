@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islmai_app1/home/tabs/ahadeth.dart';
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              'Islmai',
+              'islmai'.tr(),
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontSize: 45,
               ),
